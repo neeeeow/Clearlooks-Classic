@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Clearlooks-Classic
+Comment=Clearlooks for GTK 3/4
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Clearlooks-Classic
+MetacityTheme=Clearlooks-Classic
+IconTheme=mate
+CursorTheme=mate
