@@ -256,38 +256,61 @@ button spinner:checked {
 /**********************************************/
 
 button {
-	background-color: @theme_bg_color;
+	background: linear-gradient(
+		to bottom, 
+		@button_g1 calc(2px),
+		@button_g2 calc(25% + 2px),
+		@button_g3 calc(75% - 1px),
+		@button_g4 calc(100%)
+	);
 	padding: 4px;
-	border: 1px solid @darker_border_color;
-	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_box_shadow_color;
+	border: 1px solid @button_border_color;
+	border-radius: 4px;
+	box-shadow: inset 1px 1px @button_shadow_light, inset -1px -1px @button_shadow_dark;
 }
 
 button.flat, .appmenu, .minimize, .maximize, .close {
-	background-color: transparent;
+	background: transparent;
 	border: 1px solid transparent;
 	box-shadow: none;
 }
 
 button:checked, button:active, button:active:focus {
-	background-color: @darker_color;
-	border: 1px solid @darker_border_color;
-	box-shadow: inset 1px 1px @button_box_shadow_color, inset -1px -1px @theme_base_color;
+	background: linear-gradient(
+		to bottom, 
+		@button_g1_active calc(2px),
+		@button_g2_active calc(25% + 2px),
+		@button_g3_active calc(75% - 1px),
+		@button_g4_active calc(100%)
+	);
+	border: 1px solid @button_border_color;
+	box-shadow: inset 1px 1px @button_active_shadow;
 }
 
 button:hover:not(:active) {
-	background-color: @prelight_color;
-	border: 1px solid @darker_border_color;
-	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_box_shadow_color;
-}
-
-button:checked:hover, button:active:hover {
-	box-shadow: inset 1px 1px @button_box_shadow_color, inset -1px -1px @theme_base_color;
+	background: linear-gradient(
+		to bottom, 
+		@button_g1_hover calc(2px),
+		@button_g2_hover calc(25% + 2px),
+		@button_g3_hover calc(75% - 1px),
+		@button_g4_hover calc(100%)
+	);
+	border: 1px solid @button_border_color;
+	box-shadow: inset 1px 1px @button_shadow_light, inset -1px -1px @button_shadow_dark;
 }
 
 button:disabled, spinbutton:disabled {
-	color: @insensitive_fg_color;
 	background-color: @insensitive_bg_color;
 	-gtk-icon-effect: dim;
+}
+
+button:disabled {
+	color: @insensitive_fg_color;
+}
+
+spinbutton:disabled {
+	color: @entry_disabled_text;
+	text-shadow: none;
 }
 
 button.flat:disabled, .titlebutton:disabled {
@@ -318,15 +341,6 @@ toolbar .image-button, headerbar .image-button,  .appmenu, .minimize, .maximize,
 	min-height: 24px;
 }
 
-box.toolbar button:not(.toggle):not(:hover),
-box.toolbar button.toggle:not(:checked):not(:hover),
-box.primary-toolbar button:not(.toggle):not(:hover),
-box.primary-toolbar button.toggle:not(:checked):not(:hover) {
-	/* make toolbar buttons flat */
-	border-color: transparent;
-	background: none;
-	box-shadow: none;
-}
 
 /**********************************************/
 /* menubar, menu, popover */

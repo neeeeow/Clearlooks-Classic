@@ -34,6 +34,42 @@
  */
 
 /**********************************************/
+/* Button colors */
+/**********************************************/
+
+@define-color button_color @theme_bg_color;
+@define-color button_border_color shade(@button_color, 0.5);
+@define-color button_shadow_light #ffffff;
+@define-color button_shadow_dark shade(@button_color, 0.93);
+
+@define-color button_active_color @bg_active_color;
+@define-color button_active_shadow shade(@button_color, 0.768);
+
+@define-color button_hover_color @prelight_color;
+
+@define-color button_g1 shade(@button_color, 1.055);
+@define-color button_g2 shade(@button_color, 1.005);
+@define-color button_g3 shade(@button_color, 0.98);
+@define-color button_g4 shade(@button_color, 0.91);
+
+@define-color button_g1_active shade(@button_active_color, 1.055);
+@define-color button_g2_active shade(@button_active_color, 1.005);
+@define-color button_g3_active shade(@button_active_color, 0.98);
+@define-color button_g4_active shade(@button_active_color, 0.91);
+
+@define-color button_g1_hover shade(@button_hover_color, 1.055);
+@define-color button_g2_hover shade(@button_hover_color, 1.005);
+@define-color button_g3_hover shade(@button_hover_color, 0.98);
+@define-color button_g4_hover shade(@button_hover_color, 0.91);
+
+/**********************************************/
+/* Menu bar colors */
+/**********************************************/
+
+@define-color menubar_top_color @theme_bg_color;
+@define-color menubar_bottom_color shade(@theme_bg_color, 0.96);
+
+/**********************************************/
 /* Menu item colors */
 /**********************************************/
 
@@ -78,8 +114,6 @@
 
 @define-color frame_light_color #ffffff; /* this is always #ffffff */
 @define-color frame_groove_color shade(@theme_bg_color, 1.065);
-
-@define-color button_box_shadow_color shade(@theme_bg_color, 0.896);
 
 @define-color check_button_border shade(@theme_bg_color, 0.4);
 @define-color check_active_border #b4b4b4; /* no idea where the GTK2 theme gets this color */

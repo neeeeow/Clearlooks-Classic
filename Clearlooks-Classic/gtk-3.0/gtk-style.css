@@ -243,32 +243,47 @@ button spinner:checked {
 /**********************************************/
 
 button {
-	background-color: @theme_bg_color;
+	background: linear-gradient(
+		to bottom, 
+		@button_g1 calc(2px),
+		@button_g2 calc(25% + 2px),
+		@button_g3 calc(75% - 1px),
+		@button_g4 calc(100%)
+	);
 	padding: 4px;
-	border: 1px solid @darker_border_color;
-	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_box_shadow_color;
+	border: 1px solid @button_border_color;
+	border-radius: 4px;
+	box-shadow: inset 1px 1px @button_shadow_light, inset -1px -1px @button_shadow_dark;
 }
 
 button.flat, .appmenu, .minimize, .maximize, .close {
-	background-color: transparent;
+	background: transparent;
 	border: 1px solid transparent;
 	box-shadow: none;
 }
 
 button:checked, button:active, button:active:focus {
-	background-color: @darker_color;
-	border: 1px solid @darker_border_color;
-	box-shadow: inset 1px 1px @button_box_shadow_color, inset -1px -1px @theme_base_color;
+	background: linear-gradient(
+		to bottom, 
+		@button_g1_active calc(2px),
+		@button_g2_active calc(25% + 2px),
+		@button_g3_active calc(75% - 1px),
+		@button_g4_active calc(100%)
+	);
+	border: 1px solid @button_border_color;
+	box-shadow: inset 1px 1px @button_active_shadow;
 }
 
 button:hover:not(:active) {
-	background-color: @prelight_color;
-	border: 1px solid @darker_border_color;
-	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_box_shadow_color;
-}
-
-button:checked:hover, button:active:hover {
-	box-shadow: inset 1px 1px @button_box_shadow_color, inset -1px -1px @theme_base_color;
+	background: linear-gradient(
+		to bottom, 
+		@button_g1_hover calc(2px),
+		@button_g2_hover calc(25% + 2px),
+		@button_g3_hover calc(75% - 1px),
+		@button_g4_hover calc(100%)
+	);
+	border: 1px solid @button_border_color;
+	box-shadow: inset 1px 1px @button_shadow_light, inset -1px -1px @button_shadow_dark;
 }
 
 button:disabled, spinbutton:disabled {
@@ -313,11 +328,17 @@ toolbar .image-button, headerbar .image-button,  .appmenu, .minimize, .maximize,
 	min-height: 24px;
 }
 
+
 /**********************************************/
 /* menubar, menu, popover */
 /**********************************************/
 
 menubar {
+	background: linear-gradient(
+		to bottom, 
+		@menubar_top_color,
+		@menubar_bottom_color calc(100%)
+	);
 	padding: 1px 1px 0 1px;
 	border-bottom: 1px solid @trough_bg_color;
 }
@@ -328,7 +349,7 @@ menu, popover {
 }
 
 menu {
-	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_box_shadow_color;
+	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_shadow_dark;
 }
 
 menuitem, popover modelbutton {
@@ -337,7 +358,7 @@ menuitem, popover modelbutton {
 }
 
 menubar > menuitem {
-	padding: 3px 7px;
+	padding: 2px 7px;
 }
 
 menuitem:hover, popover modelbutton:hover {
@@ -454,7 +475,7 @@ scale slider {
 	background-color: @theme_bg_color;
 	border: 1px solid @darker_border_color;
 	border-radius: 3.5px;
-	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_box_shadow_color;
+	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_shadow_dark;
 }
 
 scale slider:active, scale slider:active:focus, scale slider:hover {
@@ -485,7 +506,7 @@ scale.vertical slider {
 
 
 scale marks indicator {
-	color: @button_box_shadow_color;
+	color: @button_shadow_dark;
 }
 
 /* this makes marks visible */
@@ -587,7 +608,7 @@ scrollbar slider {
 	min-height: 27px;
 	margin: -1px;
 	border: 1px solid @darker_border_color;
-	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_box_shadow_color;
+	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_shadow_dark;
 	padding: 1px;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -710,7 +731,7 @@ notebook tab:checked {
 
 notebook.frame > stack {
 	border: 1px solid @darker_border_color;
-	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_box_shadow_color;
+	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_shadow_dark;
 	padding: 1px;
 }
 
@@ -735,7 +756,7 @@ notebook > header.top tab:first-child {
 notebook > header.top tab:checked {
 	border-bottom: 0px;
 	margin-top: -1px;
-	box-shadow: inset 1px 1px @theme_base_color, inset -1px 0 @button_box_shadow_color;
+	box-shadow: inset 1px 1px @theme_base_color, inset -1px 0 @button_shadow_dark;
 }
 
 notebook.frame > header.top tab:checked {
@@ -756,13 +777,13 @@ notebook.frame > header.bottom tab {
 }
 
 notebook.frame > header.bottom tab:first-child {
-	box-shadow: inset 1px 0 @theme_base_color, inset -1px -1px @button_box_shadow_color;
+	box-shadow: inset 1px 0 @theme_base_color, inset -1px -1px @button_shadow_dark;
 }
 
 notebook > header.bottom tab:checked {
 	border-top: 0;
 	margin-bottom: -1px;
-	box-shadow: inset 1px 0 @theme_base_color, inset -1px -1px @button_box_shadow_color;
+	box-shadow: inset 1px 0 @theme_base_color, inset -1px -1px @button_shadow_dark;
 }
 
 notebook.frame > header.bottom tab:checked {
@@ -783,13 +804,13 @@ notebook.frame > header.left tab {
 }
 
 notebook.frame > header.left tab:first-child {
-	box-shadow: inset 1px 1px @theme_base_color, inset 0 -1px @button_box_shadow_color;
+	box-shadow: inset 1px 1px @theme_base_color, inset 0 -1px @button_shadow_dark;
 }
 
 notebook > header.left tab:checked {
 	border-right: 0;
 	margin-left: -1px;
-	box-shadow: inset 1px 1px @theme_base_color, inset 0 -1px @button_box_shadow_color;
+	box-shadow: inset 1px 1px @theme_base_color, inset 0 -1px @button_shadow_dark;
 }
 
 notebook.frame > header.left tab:checked {
@@ -809,13 +830,13 @@ notebook.frame > header.right tab {
 }
 
 notebook.frame > header.right tab:first-child {
-	box-shadow: inset 0 1px @theme_base_color, inset -1px -1px @button_box_shadow_color;
+	box-shadow: inset 0 1px @theme_base_color, inset -1px -1px @button_shadow_dark;
 }
 
 notebook > header.right tab:checked {
 	border-left: 0;
 	margin-right: -1px;
-	box-shadow: inset 0 1px @theme_base_color, inset -1px -1px @button_box_shadow_color;
+	box-shadow: inset 0 1px @theme_base_color, inset -1px -1px @button_shadow_dark;
 }
 
 notebook.frame > header.right tab:checked {
@@ -1147,7 +1168,7 @@ switch slider {
 	background-position: center center;
 	border: 1px solid @darker_border_color;
 	padding: 1px;
-	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_box_shadow_color;
+	box-shadow: inset 1px 1px @theme_base_color, inset -1px -1px @button_shadow_dark;
 	margin: -1px;
 }
 
